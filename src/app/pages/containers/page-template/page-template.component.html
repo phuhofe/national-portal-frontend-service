@@ -1,0 +1,44 @@
+<app-header *ngIf="includeDefaultPageElements && !applicationIsEmbedded"></app-header>
+<adstate-settings-component *ngIf="includeDefaultPageElements && !applicationIsEmbedded"></adstate-settings-component>
+<div class="page-template-wrapper">
+  <div class="page-template-inner">
+    <flora-card padding="lg">
+      <ng-content select="[before]"></ng-content>
+
+      <ng-container *ngIf="isStaticPage; else dynamicPage">
+        <ng-content select="[content]"></ng-content>
+      </ng-container>
+
+      <ng-template #dynamicPage>
+        <ng-container *ngIf="(translations$ | async)?.isLoading">
+          <ng-container *ngTemplateOutlet="loadingSkeleton"></ng-container>
+          <ng-container *ngTemplateOutlet="loadingSkeleton"></ng-container>
+          <ng-container *ngTemplateOutlet="loadingSkeleton"></ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="(translations$ | async)?.isError">
+          <div>
+            <h1>{{ (translations$ | async)?.title | transloco }}</h1>
+            <p>{{ (translations$ | async)?.content | transloco }}</p>
+          </div>
+        </ng-container>
+
+        <div [ngClass]="{ 'd-none': (translations$ | async)?.isLoading || (translations$ | async)?.isError }">
+          <h1>{{ (translations$ | async)?.title }}</h1>
+          <div [innerHTML]="(translations$ | async)?.content"></div>
+        </div>
+        <ng-content></ng-content>
+      </ng-template>
+    </flora-card>
+  </div>
+</div>
+<app-footer *ngIf="includeDefaultPageElements && !applicationIsEmbedded"></app-footer>
+
+<ng-template #loadingSkeleton>
+  <div class="skeleton">
+    <div class="line line-40 h2x"></div>
+    <div class="line line-50"></div>
+    <div class="line line-75"></div>
+    <div class="line"></div>
+  </div>
+</ng-template>

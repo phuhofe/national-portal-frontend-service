@@ -1,0 +1,121 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "national-portal-fe.fullname" . }}
+  annotations:
+    {{- if .Values.ci.environment }}
+    app.gitlab.com/env: {{ default "" .Values.ci.environment }}
+    app.gitlab.com/app: {{ default "" .Values.ci.projectPath }}
+    {{- end }}
+  labels:
+    {{- include "national-portal-fe.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "national-portal-fe.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        {{- if .Values.ci.environment }}
+        app.gitlab.com/env: {{ default "" .Values.ci.environment }}
+        app.gitlab.com/app: {{ default "" .Values.ci.projectPath }}
+        {{- end }}
+      labels:
+        {{- include "national-portal-fe.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "national-portal-fe.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+              {{- if .Values.service.https }}
+              scheme: HTTPS
+              {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+              {{- if .Values.service.https }}
+              scheme: HTTPS
+              {{- end }}
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            failureThreshold: 30
+            periodSeconds: 10
+          {{- if .Values.service.https }}
+          env:
+          - name: ASPNETCORE_Kestrel__Certificates__Default__Path
+            value: "/app/tls/kestrel.pfx"
+          - name: SERVER_USE_HTTPS
+            value: "1"
+          {{- else }}
+          env: []
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          - name: data
+            mountPath: /data
+          {{- if .Values.service.https }}
+          - name: tls-certificates
+            mountPath: /app/tls
+            readOnly: true
+          {{- end }}
+        - name: fe-nginx-exporter
+          image: "nginx/nginx-prometheus-exporter:0.10.0"
+          args: 
+            - -nginx.scrape-uri=http://localhost:8080/nginx_status
+          ports:
+          - name: metrics
+            containerPort: 9113
+      initContainers:
+      - name: init
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        command: [ "/bin/sh", "-c", "true"]
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+      {{- if .Values.persistence.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistence.existingClaim | default (include "national-portal-fe.fullname" .) }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
+      {{- if .Values.service.https }}
+      - name: tls-certificates
+        secret:
+          secretName: {{ .Values.service.secretName }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

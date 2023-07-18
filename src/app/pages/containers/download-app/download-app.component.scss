@@ -1,0 +1,467 @@
+@import '../../../../styles/global.scss';
+@import '~@angular/material/theming';
+$color_config: mat-get-color-config($adstate-theme);
+$accent: map-get($color_config, accent);
+$typography_config: mat-typography-config();
+
+@mixin fontSettingsForCopy {
+  font-size: 18px;
+  line-height: 1.33;
+  font-weight: 300;
+}
+
+main {
+  background-color: var(--color-shade-50);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  display: flex;
+  gap: 0.5rem;
+}
+
+header {
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary-500);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 2em 0.5em;
+  margin-bottom: 12em;
+
+  @media (min-width: 360px) {
+    padding: 2em 1em;
+  }
+
+  @media (min-width: 480px) {
+    margin-bottom: 15em;
+    padding: 2em;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 8em;
+  }
+
+  @media (min-width: 1920px) {
+    min-height: 600px;
+  }
+
+  @media (min-width: 2560px) {
+    min-height: 700px;
+  }
+}
+
+header .title {
+  margin-top: 2rem;
+  font-size: mat-font-size($typography_config, display-2);
+
+  @media (min-width: 480px) {
+    font-size: mat-font-size($typography_config, display-3);
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 0;
+  }
+}
+
+header .background {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .bg-image,
+  .overlay,
+  .waves {
+    position: absolute;
+  }
+
+  .bg-image,
+  .overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg-image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .waves {
+    right: 0;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    color: var(--color-shade-50);
+  }
+}
+
+header .inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+  color: #fff;
+  width: 100em;
+  max-width: 100%;
+  margin: auto;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+
+  img {
+    width: 50em;
+    max-width: 100%;
+    position: relative;
+    margin-bottom: -15em;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    word-break: break-word;
+    gap: 0.5em;
+
+    :nth-child(2) {
+      position: absolute;
+      top: 50%;
+      left: -2rem;
+      transform: translateY(-50%);
+      font-size: 3em;
+      opacity: 0.3;
+    }
+  }
+
+  .intro-text {
+    display: block;
+    margin: 2rem 0;
+    @include fontSettingsForCopy;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+
+    @media (min-width: 760px) {
+      justify-content: start;
+    }
+
+    a {
+      cursor: pointer;
+      transition-property: color, background-color, fill, stroke, transform;
+      transition-duration: 150ms;
+      transition-timing-function: ease-in-out;
+      text-decoration: none;
+      word-break: break-word;
+      display: flex;
+      gap: 0.5em;
+      padding: 0.5rem 1rem;
+      justify-content: center;
+      align-items: center;
+      border-radius: var(--border-radius-medium);
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      transform: scale(1);
+      color: var(--color-primary-500);
+      background-color: var(--color-primary-50);
+      background-image: linear-gradient(135deg, #fff 0%, var(--color-primary-50) 100%);
+      box-shadow: 0 1em 3em -1.5em rgba(30, 0, 30, 0.5);
+    }
+
+    a .icon {
+      width: 3em;
+      height: 3em;
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      svg .layer-1 {
+        opacity: 0.2;
+      }
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
+      transform: scale(1.025);
+      box-shadow: 0 1em 2em -1em rgba(30, 0, 30, 0.5);
+
+      .icon svg .layer-1 {
+        opacity: 1;
+      }
+    }
+
+    a:active {
+      transition-duration: 50ms;
+      transform: scale(0.95);
+    }
+  }
+}
+
+section.app-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  gap: 0.5em;
+
+  @media (min-width: 360px) {
+  }
+
+  @media (min-width: 480px) {
+    gap: 1em;
+  }
+
+  .title {
+    display: block;
+    margin: 0 auto 4rem;
+    text-align: center;
+    font-size: mat-font-size($typography_config, display-1);
+
+    @media (min-width: 480px) {
+      font-size: mat-font-size($typography_config, display-2);
+    }
+  }
+}
+
+.app-info-list {
+  list-style: none;
+  margin: 0;
+  padding: 4em 0 8em;
+  display: flex;
+  flex-direction: column;
+  gap: 6em;
+  overflow: hidden;
+
+  @media (min-width: 480px) {
+    gap: 10em;
+  }
+
+  .app-info-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+
+    padding: 0 0.5em;
+
+    @media (min-width: 360px) {
+      padding: 0 1em;
+    }
+
+    @media (min-width: 480px) {
+      padding: 0 2em;
+    }
+
+    @media (min-width: 760px) {
+      flex-direction: row;
+      gap: 4em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    img,
+    ul,
+    li,
+    .polaroid {
+      display: block;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    ul {
+      position: relative;
+      z-index: 1;
+    }
+
+    ul {
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+
+    p,
+    li {
+      @include fontSettingsForCopy;
+    }
+
+    .polaroid {
+      margin: 3rem auto 0;
+      border: 1em solid #fff;
+      border-bottom-width: 2em;
+      box-shadow: 0 1em 3em -1.5em rgba(0, 0, 50, 0.2);
+      width: 10em;
+      height: 15em;
+
+      @media (min-width: 480px) {
+        width: 12.5em;
+        height: 17.5em;
+      }
+
+      @media (max-width: 759px) {
+        position: absolute;
+      }
+
+      @media (min-width: 760px) {
+        width: 15em;
+        height: 20em;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .app-info-list-item .app-info-list-item-phone {
+    width: 100%;
+
+    @media (min-width: 760px) {
+      width: 50%;
+    }
+  }
+
+  .app-info-list-item .app-info-list-item-content {
+    position: relative;
+    width: 40em;
+    max-width: 100%;
+
+    @media (max-width: 759px) {
+      margin: auto;
+    }
+
+    @media (min-width: 760px) {
+      max-width: 50%;
+    }
+  }
+
+  .app-info-list-item:nth-child(odd) .app-info-list-item-content {
+    @media (min-width: 760px) {
+      margin-right: auto;
+    }
+  }
+
+  .app-info-list-item:nth-child(even) .app-info-list-item-content {
+    @media (min-width: 760px) {
+      margin-left: auto;
+    }
+  }
+
+  .app-info-list-item:nth-child(odd) .app-info-list-item-phone {
+    @media (max-width: 759px) {
+      order: 1;
+    }
+  }
+
+  .app-info-list-item .app-info-list-item-phone img {
+    max-width: 100%;
+    vertical-align: middle;
+    max-height: 75vh;
+    object-fit: contain;
+    object-position: center;
+    margin: auto;
+
+    @media (min-width: 1024px) {
+      max-height: 50vh;
+    }
+  }
+
+  .app-info-list-item .app-info-list-item-title {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: mat-font-size($typography_config, headline);
+
+    @media (min-width: 480px) {
+      font-size: mat-font-size($typography_config, display-1);
+    }
+
+    .icon {
+      font-size: 3rem;
+      width: 1em;
+      height: 1em;
+      color: var(--color-primary-500);
+    }
+  }
+}
+
+.app-info-list li:nth-child(1) .polaroid {
+  transform: rotate(20deg);
+  top: 20rem;
+  top: 70vw;
+  right: -3rem;
+  z-index: 0;
+}
+
+.app-info-list li:nth-child(3) .polaroid {
+  transform: rotate(20deg);
+  top: 5rem;
+  right: -2rem;
+  z-index: 0;
+}
+
+.download-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 6em 2em 4em;
+  gap: 1em;
+  background-color: var(--color-primary-500);
+  background-image: linear-gradient(135deg, var(--color-primary-200) 0%, var(--color-primary-600) 100%);
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2em;
+  }
+
+  .qr img:focus,
+  .qr img:active {
+    position: fixed;
+    object-fit: contain;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+<flora-cookie-pop-up
+  #cookiePopUp
+  [title]="'cookiePopUp.title' | transloco"
+  [isShowCookieCategories]="true"
+  [cookieCategories]="cookies$ | async"
+  (cookieSubmit)="cookiePopUpSubmit($event)"
+>
+  <p description>
+    <span>{{ 'cookiePopUp.description.before' | transloco }}</span>
+    <a [href]="companySlug$ | async | privacyPolicyLinkPipe">{{ 'cookiePopUp.description.link' | transloco }}</a>
+    <span>{{ 'cookiePopUp.description.after' | transloco }}</span>
+  </p>
+  <button
+    id="cookie-pop-up-see-details"
+    otherActions
+    mat-stroked-button
+    color="basic"
+    (click)="cookiePopUp.onSubmitEvent($event, SEE_DETAILS); onSeeDetail()"
+  >
+    {{ 'portalPage.settings.seeDetails' | transloco }}
+  </button>
+  <button
+    id="cookie-pop-up-only-necessary"
+    otherActions
+    mat-stroked-button
+    color="basic"
+    (click)="cookiePopUp.onSubmitEvent($event, ONLY_NECESSARY); onAcceptOnlyNecessary()"
+  >
+    {{ 'portalPage.settings.onlyNecessary' | transloco }}
+  </button>
+  <button
+    id="cookie-pop-up-accept-all"
+    primaryActions
+    mat-flat-button
+    color="primary"
+    (click)="cookiePopUp.onSubmitEvent($event, ACCEPT_ALL); onAcceptAll()"
+    data-cy="cookie-pop-up-accept-all"
+  >
+    {{ 'portalPage.settings.acceptAll' | transloco }}
+  </button>
+</flora-cookie-pop-up>

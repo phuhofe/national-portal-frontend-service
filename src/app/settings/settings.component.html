@@ -1,0 +1,23 @@
+<div *ngIf="useAppWrapper; then appWrapperBlock; else contentBlock"></div>
+<ng-template #appWrapperBlock>
+  <app-wrapper>
+    <ng-container *ngTemplateOutlet="contentBlock"></ng-container>
+  </app-wrapper>
+</ng-template>
+<ng-template #contentBlock>
+  <div
+  [ngClass]="{
+    settings: true,
+    'show-cookie-pop-up': showCookiePopUp$ | async,
+    'show-settings-modal': showSettingsModal$ | async
+  }"
+>
+  <app-cookie-pop-up
+    class="cookie-pop-up"
+    (seeDetails)="openSettingsModal('cookies')"
+    (eventListenerStarted)="cookiePopUpEventListenerStarted.emit()"
+  ></app-cookie-pop-up>
+      <app-settings-modal class="settings-modal" [initialPage]="initialSettingsModalPage"></app-settings-modal>
+      <app-scripts-handler></app-scripts-handler>
+    </div>
+    </ng-template>

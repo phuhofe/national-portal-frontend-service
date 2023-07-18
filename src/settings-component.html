@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Settings component</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <adstate-settings-component language="nb_NO"></adstate-settings-component>
+    <script src="/embed/settings-component.js" defer></script>
+
+    <section>
+      <div>
+        <label>Language</label>
+        <select name="language" id="change-language">
+          <option value="nb_NO" selected>nb_NO</option>
+          <option value="en_GB">en_GB</option>
+          <option value="sv_SE">sv_SE</option>
+          <option value="da_DK">da_DK</option>
+          <option value="nl_NL">nl_NL</option>
+        </select>
+      </div>
+
+      <div>
+        <br />
+        <button id="open-cookie" type="button">Open cookie pop-up</button>
+      </div>
+
+      <div>
+        <br />
+        <button id="delete-cookies" type="button">Delete cookies</button>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        const $ = document.querySelector.bind(document);
+
+        $('#open-cookie').addEventListener('click', () => {
+          const event = new Event('adstate-settings-cookie-pop-up-open');
+          document.dispatchEvent(event);
+        });
+
+        $('#delete-cookies').addEventListener('click', () => {
+          const event = new Event('adstate-settings-cookie-pop-up-delete');
+          document.dispatchEvent(event);
+        });
+
+        $('#change-language').addEventListener('change', function () {
+          $('adstate-settings-component').setAttribute('language', this.value);
+        });
+
+        $('adstate-settings-component').addEventListener('changeLanguage', function (event) {
+          $('#change-language').value = event.detail;
+        });
+      })();
+    </script>
+  </body>
+</html>

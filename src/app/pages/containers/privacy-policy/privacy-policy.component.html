@@ -1,0 +1,19 @@
+<div>
+  <app-header *ngIf="!applicationIsEmbedded"></app-header>
+  <adstate-settings-component
+    *ngIf="!applicationIsEmbedded"
+    (cookiePopUpEventListenerStarted)="cookiePopUpEventListenerStarted()"
+  ></adstate-settings-component>
+  <app-page-template [includeDefaultPageElements]="false">
+    <ng-content></ng-content>
+    <div class="privacy-policy-page buttons">
+      <button id="privacy-policy-page-change-settings" (click)="openCookiePopUp()" mat-button mat-flat-button color="primary">
+        {{ 'privacyPolicyPage.buttons.changeSettings' | transloco }}
+      </button>
+      <button id="privacy-policy-page-delete-cookies" (click)="deleteAllCookies()" mat-button mat-stroked-button color="error">
+        {{ 'privacyPolicyPage.buttons.deleteCookies' | transloco }}
+      </button>
+    </div>
+  </app-page-template>
+  <app-footer *ngIf="!applicationIsEmbedded"></app-footer>
+</div>

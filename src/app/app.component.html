@@ -1,0 +1,8 @@
+<ng-container *ngIf="(notFound$ | async); else found">
+  <app-page-not-found></app-page-not-found>
+</ng-container>
+
+<ng-template #found>
+  <router-outlet></router-outlet>
+</ng-template>
+

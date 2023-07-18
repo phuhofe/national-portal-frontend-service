@@ -1,0 +1,34 @@
+@import './variables';
+@import 'icons.scss';
+@import 'fonts.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin typography {
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-display: swap;
+  text-align: left;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
+  }
+}

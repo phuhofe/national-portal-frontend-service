@@ -1,0 +1,19 @@
+<div class="footer-wrapper" *ngIf="footerProps && showFooter">
+  <div class="footer-inner">
+    <flora-footer
+      [logo]="footerProps.logo"
+      [description]="footerProps.description"
+      [descriptionLink]="footerProps.descriptionLink"
+      [copyright]="footerProps.copyright"
+      [menuHeading]="footerProps.menuHeading"
+      [menu]="footerProps.menu"
+    >
+      <app-download-actions
+        *ngIf="isDevEnvironment && (companySlug$ | async) === nationalPortalCompanyName"
+        class="footer-extra"
+        footerMenuExtra
+      >
+      </app-download-actions>
+    </flora-footer>
+  </div>
+</div>

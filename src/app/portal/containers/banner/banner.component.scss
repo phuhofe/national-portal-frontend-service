@@ -1,0 +1,12 @@
+.banner {
+  width: 100%;
+  min-height: 10em;
+  height: 30em;
+  max-height: 50vh;
+  object-fit: cover;
+  background-color: var(--color-shade-100);
+
+  @media (min-width: 480px) {
+    border-radius: var(--border-radius-large);
+  }
+}

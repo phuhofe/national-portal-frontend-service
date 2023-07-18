@@ -1,0 +1,11 @@
+<app-wrapper>
+  <app-header></app-header>
+  <adstate-settings-component></adstate-settings-component>
+  <router-outlet *ngIf="applicationIsEmbedded; else applicationIsHosted"></router-outlet>
+  <ng-template #applicationIsHosted>
+    <app-portal-page></app-portal-page>
+  </ng-template>
+  <div id="footer">
+    <app-footer></app-footer>
+  </div>
+</app-wrapper>

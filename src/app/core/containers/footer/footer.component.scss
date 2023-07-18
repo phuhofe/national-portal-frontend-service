@@ -1,0 +1,27 @@
+@import '../../../../styles/global.scss';
+
+.footer-wrapper {
+  @include typography;
+}
+
+.footer-inner {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100em;
+  padding: 0.5em;
+
+  @media (min-width: 360px) {
+    padding: 1em;
+  }
+
+  @media (min-width: 480px) {
+    padding: 2em;
+  }
+}
+
+.footer-extra {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

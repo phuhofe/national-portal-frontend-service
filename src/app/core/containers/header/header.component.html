@@ -1,0 +1,171 @@
+<ng-template #logoImage>
+  <a
+    [routerLink]="(companySlug$ | async) === NationalPortalCompanyName ? ['/'] : ['/', companySlug$ | async]"
+    [skipLocationChange]="applicationIsEmbedded"
+    itemprop="url"
+    itemtype="https://schema.org/SiteNavigationElement"
+    [ngClass]="{
+      'display-logo-mobile': (isMobileScreen$ | async)?.matches && isDevEnvironment,
+      'display-logo-desktop': !(isMobileScreen$ | async)?.matches && isDevEnvironment
+    }"
+  >
+    <flora-logo imageSource="{{ logo.imageUrl }}"></flora-logo>
+  </a>
+</ng-template>
+
+<div *ngIf="displayNavBar" class="nav-bar-wrapper">
+  <div class="nav-bar-inner">
+    <flora-navigation-bar>
+      <ng-container
+        left
+        *ngIf="isDevEnvironment && (companySlug$ | async) === NationalPortalCompanyName && (embeddedPortalAttributes$ | async)"
+      >
+        <app-download-actions class="download-actions" [hideOnMobile]="true"></app-download-actions>
+      </ng-container>
+
+      <ng-container
+        ngProjectAs="[left]"
+        *ngIf="(companySlug$ | async) === NationalPortalCompanyName && isDevEnvironment && (isMobileScreen$ | async)?.matches"
+      >
+        <ng-container *ngTemplateOutlet="logoImage"></ng-container>
+      </ng-container>
+
+      <ng-container
+        ngProjectAs="[left]"
+        *ngIf="(embeddedPortalAttributes$ | async)?.displayLogo && logo.display && logo.align === ImageAlignment.LEFT"
+      >
+        <ng-container *ngIf="!((companySlug$ | async) === NationalPortalCompanyName) || !isDevEnvironment">
+          <ng-container *ngTemplateOutlet="logoImage"></ng-container>
+        </ng-container>
+        <ng-container
+          *ngIf="(companySlug$ | async) === NationalPortalCompanyName && isDevEnvironment && !(isMobileScreen$ | async)?.matches"
+        >
+          <ng-container *ngTemplateOutlet="logoImage"></ng-container>
+        </ng-container>
+      </ng-container>
+
+      <ng-container
+        ngProjectAs="[center]"
+        *ngIf="
+          (companySlug$ | async) === NationalPortalCompanyName &&
+          isDevEnvironment &&
+          !(isMobileScreen$ | async)?.matches &&
+          logo.display &&
+          logo.align === ImageAlignment.CENTER
+        "
+      >
+        <ng-container *ngTemplateOutlet="logoImage"></ng-container>
+      </ng-container>
+
+      <ng-container
+        ngProjectAs="[center]"
+        *ngIf="(embeddedPortalAttributes$ | async)?.displayLogo && logo.display && logo.align === ImageAlignment.CENTER"
+      >
+        <ng-container *ngIf="(companySlug$ | async) === NationalPortalCompanyName && !isDevEnvironment">
+          <ng-container *ngTemplateOutlet="logoImage"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="(companySlug$ | async) !== NationalPortalCompanyName && !isDevEnvironment">
+          <ng-container *ngTemplateOutlet="logoImage"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="(companySlug$ | async) !== NationalPortalCompanyName && isDevEnvironment">
+          <ng-container *ngTemplateOutlet="logoImage"></ng-container>
+        </ng-container>
+      </ng-container>
+
+      <flora-language-switcher
+        *ngIf="(siteLanguageSetting$ | async)?.value && (embeddedPortalAttributes$ | async)?.displayLanguageSwitcher"
+        right
+        buttonStyle="mat-stroked-button"
+        [hideTextOnMobile]="true"
+        [defaultLanguage]="(siteLanguageSetting$ | async).value"
+        [availableLanguages]="availableLanguages$ | async"
+        (languageSelected)="onLanguageSelected($event)"
+      ></flora-language-switcher>
+
+      <flora-navigation-menu
+        *ngIf="(embeddedPortalAttributes$ | async)?.displayMenu"
+        right
+        desktopText="Menu"
+        mobileIcon="menu"
+        desktopIcon="expand_more"
+        [desktopText]="'portalPage.menu.button' | transloco"
+      >
+        <flora-navigation-menu-item>
+          <a
+            [routerLink]="(companySlug$ | async) === NationalPortalCompanyName ? ['/'] : ['/', companySlug$ | async]"
+            itemscope
+            itemtype="https://schema.org/SiteNavigationElement"
+            itemprop="url"
+            [skipLocationChange]="applicationIsEmbedded"
+          >
+            <span itemprop="name">{{ 'portalPage.menu.home' | transloco }}</span>
+          </a>
+        </flora-navigation-menu-item>
+        <flora-navigation-menu-item>
+          <a
+            [href]="links.funeralHomePage"
+            itemscope
+            itemtype="https://schema.org/SiteNavigationElement"
+            itemprop="url"
+            [skipLocationChange]="applicationIsEmbedded"
+          >
+            <span itemprop="name">{{ 'portalPage.menu.funeralHomePage' | transloco }}</span>
+          </a>
+        </flora-navigation-menu-item>
+        <flora-navigation-menu-item
+          *ngIf="isDevEnvironment && (companySlug$ | async) === NationalPortalCompanyName && (embeddedPortalAttributes$ | async)"
+        >
+          <a
+            [routerLink]="['/app']"
+            itemscope
+            itemtype="https://schema.org/SiteNavigationElement"
+            itemprop="url"
+            [skipLocationChange]="applicationIsEmbedded"
+          >
+            <span itemprop="name">{{ 'portalPage.menu.app' | transloco }}</span>
+          </a>
+        </flora-navigation-menu-item>
+        <flora-navigation-menu-item>
+          <a
+            [routerLink]="['/', companySlug$ | async, 'pages', 'about']"
+            itemscope
+            itemtype="https://schema.org/SiteNavigationElement"
+            itemprop="url"
+            [skipLocationChange]="applicationIsEmbedded"
+          >
+            <span itemprop="name">{{ 'portalPage.menu.aboutUs' | transloco }}</span>
+          </a>
+        </flora-navigation-menu-item>
+        <flora-navigation-menu-item>
+          <a
+            [routerLink]="['/', companySlug$ | async, 'pages', 'terms-and-conditions']"
+            itemscope
+            itemtype="https://schema.org/SiteNavigationElement"
+            itemprop="url"
+            [skipLocationChange]="applicationIsEmbedded"
+          >
+            <span itemprop="name">{{ 'portalPage.menu.termsAndConditions' | transloco }}</span>
+          </a>
+        </flora-navigation-menu-item>
+        <flora-navigation-menu-item (click)="openSettings()">
+          <p>
+            <mat-icon>settings</mat-icon>
+            <span>{{ 'portalPage.menu.settings' | transloco }}</span>
+          </p>
+        </flora-navigation-menu-item>
+        <flora-navigation-menu-item>
+          <a
+            [href]="links.login"
+            itemscope
+            itemtype="https://schema.org/SiteNavigationElement"
+            itemprop="url"
+            [skipLocationChange]="applicationIsEmbedded"
+          >
+            <mat-icon>login</mat-icon>
+            <span itemprop="name">{{ 'portalPage.menu.login' | transloco }}</span>
+          </a>
+        </flora-navigation-menu-item>
+      </flora-navigation-menu>
+    </flora-navigation-bar>
+  </div>
+</div>

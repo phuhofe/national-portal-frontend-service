@@ -1,0 +1,5 @@
+<div class="download-actions" [ngClass]="{ 'hide-mobile': hideOnMobile }">
+  <a *ngFor="let item of storeButtons" [routerLink]="[item.url]" class="store-button">
+    <img [src]="item.srcImg" [alt]="item.altImg" />
+  </a>
+</div>

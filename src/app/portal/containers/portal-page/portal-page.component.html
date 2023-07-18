@@ -1,0 +1,68 @@
+<main>
+  <div class="banner-wrapper">
+    <ng-container *ngIf="displayBannerAttributes$ | async; else noBanner">
+      <app-banner></app-banner>
+    </ng-container>
+
+    <ng-template #noBanner>
+      <div class="no-banner-container"></div>
+    </ng-template>
+  </div>
+
+  <div class="search-wrapper">
+    <div class="search-box">
+      <flora-search-box
+        [searchLabel]="'portalPage.searchBox.title' | transloco"
+        [placeholder]="'portalPage.searchBox.placeholder' | transloco"
+        [searchLocations]="searchAreas"
+        [disableSearchButton]="disableSearchButton"
+        (searchValueChange)="onSearch($event)"
+        (searchValueInput)="onSearchInput($event)"
+      ></flora-search-box>
+    </div>
+
+    <div class="loading-data" *ngIf="isLoading$ | async">
+      <img src="{{ loadingSpinnerImage }}" alt="loading spinner" />
+    </div>
+
+    <div class="sort-and-filter-wrapper" [ngClass]="{ 'hide-filter': (isLoading$ | async) }">
+      <flora-sort [label]="'portalPage.sort.button' | transloco" [items]="sortItems" (sortSelect)="onSelectSort($event)"> </flora-sort>
+
+      <flora-filter
+        [filterButton]="'portalPage.filter.button' | transloco"
+        [firstNameLabel]="'portalPage.filter.firstName' | transloco"
+        [lastNameLabel]="'portalPage.filter.lastName' | transloco"
+        [birthdateLabel]="'portalPage.filter.birthdate' | transloco"
+        [deathdateLabel]="'portalPage.filter.deathdate' | transloco"
+        [regionLabel]="'portalPage.filter.region' | transloco"
+        [cityLabel]="'portalPage.filter.city' | transloco"
+        [clearButton]="'portalPage.filter.clear' | transloco"
+        [cancelButton]="'portalPage.filter.cancel' | transloco"
+        [applyButton]="'portalPage.filter.apply' | transloco"
+        [invalidDate]="'portalPage.filter.invalidDate' | transloco"
+        [cityOptions]="regionsAndCities$ | async"
+        (filterParam)="onFilter($event)"
+        (clear)="onClearFilter()"
+      ></flora-filter>
+    </div>
+
+    <div *ngIf="(isLoading$ | async) === false && shouldShowSearchResults">
+      <div #searchResultsTop></div>
+      <flora-search-result
+        [paginatorResultsPerPageOptions]="paginatorResultsPerPageOptions"
+        [orders]="orders$ | async"
+        [paginatorPaging]="paging$ | async"
+        [paginatorLabels]="{
+          itemsPerPage: 'portalPage.pagination.itemsPerPage' | transloco,
+          next: 'portalPage.pagination.next' | transloco,
+          previous: 'portalPage.pagination.previous' | transloco,
+          elementsXOutOfY: 'portalPage.pagination.elementsXOutOfY' | transloco
+        }"
+        [noResultsTitle]="'portalPage.searchResult.noResultTitle' | transloco"
+        [noResultsDescription]="'portalPage.searchResult.noResultDescription' | transloco"
+        [layout]="companySearchLayout$ | async"
+        (pageChange)="onPageChange($event)"
+      ></flora-search-result>
+    </div>
+  </div>
+</main>

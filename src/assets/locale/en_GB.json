@@ -1,0 +1,141 @@
+{
+    "portalPage": {
+        "searchBox": {
+            "title": "Search",
+            "placeholder": "Enter a name, year or place",
+            "searchAreas": {
+                "local": "Local",
+                "national": "National"
+            }
+        },
+        "searchResult": {
+            "noResultTitle": "No result",
+            "noResultDescription": "We could not find anything matching your search. Please try to search for something else",
+            "service": {
+                "memorialPage": "Memorial page",
+                "donation": "Donation",
+                "deathNotice": "Death notice",
+                "flowerShop": "Flowers"
+            }
+        },
+        "header": {
+            "privacy": "Privacy"
+        },
+        "menu": {
+            "home": "Home",
+            "aboutUs": "About the portal",
+            "termsAndConditions": "Terms and conditions",
+            "nova": "Nova",
+            "settings": "Settings",
+            "login": "Login",
+            "funeralHomePage": "Funeral home website",
+            "button": "Menu",
+            "language": {
+                "english": "English",
+                "norwegian": "Norwegian",
+                "swedish": "Swedish",
+                "danish": "Danish",
+                "dutch": "Dutch"
+            }
+        },
+        "sort": {
+            "mostRelevant": "Most relevant",
+            "firstName": "Alphabetically sorted by first name (A - Å)",
+            "lastName": "Alphabetically sorted by last name (A - Z)",
+            "birthYearHighToLow": "Year of birth (high to low)",
+            "birthYearLowToHigh": "Year of birth (low to high)",
+            "deathYearHighToLow": "Year of death (high to low)",
+            "deathYearLowToHigh": "Year of death (low to high)"
+        },
+        "settings": {
+            "seeDetails": "See details",
+            "acceptSelected": "Accept selected",
+            "acceptAll": "Accept all",
+            "noCookieForCategory": "There are no cookies for this category yet.",
+            "cookieName": "Name",
+            "expiry": "Expiry",
+            "type": "Type",
+            "developerSettingGoHere": "Developer settings can go here",
+            "forMoreInformation": "For more information, see our ",
+            "privacyPolicy": "privacy policy",
+            "cookie": "<p>Vi benytter informasjonskapsler (cookies), som de fleste andre nettsteder og i henhold til norsk lovgivning. En informasjonskapseler data som lagres i din nettleser for at nettsiden skal kjenne deg igjen fra side til side og besøk til besøk.<\/p>"
+        },
+        "pagination": {
+            "itemsPerPage": "Items per page",
+            "next": "Next",
+            "previous": "Previous",
+            "elementsXOutOfY": "of"
+        },
+        "meta": {
+            "title": "Obituaries, deaths and memorial sites for Britain",
+            "description": "Obituaries, deaths and memorial pages for Britain can be found here on the portal. You can search by name, place and date"
+        }
+    },
+    "notFoundPage": {
+        "content": "<h1>404 Page not found<\/h1>"
+    },
+    "privacyPolicyPage": {
+        "buttons": {
+            "changeSettings": "Change settings",
+            "deleteCookies": "Delete all cookies"
+        },
+        "content": "<h2>Personvernerklæring for Adstate<\/h2><p>Denne personvernerklæringen beskriver dine personvernrettigheter og vårt ansvar for å ivareta disse.<\/p><p>Erklæringen gjelder for alle tjenester Adstate AS tilbyr og drifter.<\/p><p><\/p><h2>Behandlingsansvarlig<\/h2><p>Administrerende direktør er på vegne av Adstate AS, behandlingsansvarlig for selskapets behandling av personopplysninger.<\/p><p><\/p> <h2>Personopplysninger som lagres<\/h2><p>Vi lagrer følgende personopplysninger relatert til bruken av tjenestene (på vegne av kunder og partnere);<\/p><h4>Dødsannonser:<\/h4><p>Alt innhold inklusive navn på pårørende som nevnt i annonsen.<\/p><h4>Minneside administrator:<\/h4><p>Navn og epostadresse, i tillegg til passord i kryptert form.<\/p><h4>Minneside:<\/h4><p>Minnesidene baserer seg på brukergenerert innhold, som minneord og tente lys. Hvis brukeren selv oppgir sitt navn eller annen persondata lagres dette.<\/p><h4>Påmelding til seremonier og minnesamvær:<\/h4><p>Navn, e-post og telefonnummer til kontaktpersonen som melder på deltagere. Navn og spesielle ønsker for seremonien, samt spesielle behov for minnestund for deltagere som meldes på for deltagelse ved seremonien og minnesamvær via vår nettbaserte løsning på minnesiden. Arrangører av seremonier kan dersom det er pålagt å føre register, bruke ovenfor nevnte data for besøksregistrering i forbindelse med smittevernsporing.<\/p><h4>Minnegaver:<\/h4><p>All informasjon om giveren og gaven. Kredittkortinformasjon lagres ikke av oss, men av våre partnere for betalingsformidling<\/p><h4>Minneblomster:<\/h4><p>All informasjon om giveren og kjøpet. Kredittkortinformasjon lagres ikke av oss, men av våre partnere for betalingsformidling<\/p><h4>Begravelsesplanlegger på nett:<\/h4><p>All informasjon brukeren legger inn. Om våre kunder og partnere (begravelsesbyråene, aviser\/medier, gavemottakere) lagrer vi navn, adresse, telefonnummer, epostadresse og korrespondanse.<\/p><p><\/p><h2>Formål med behandlingen<\/h2><p>Vi behandler opplysningene for å kunne gjennomføre våre forpliktelser etter avtale med våre kunder og brukere.<\/p><p>I tillegg benytter vi dine personopplysninger for å gi deg informasjon, tilbud og service i forbindelse med ditt kjøp, via e-post, telefon og SMS.<\/p><p><\/p><h2>Grunnlaget for behandlingen<\/h2><p>Grunnlaget for behandlingen av personopplysninger er våre avtaleforpliktelser.<\/p><p>Bruk av personopplysninger til markedsføring o.l. gjøres på grunnlag av samtykke. Slikt samtykke avgis frivillig og kan senere trekkes tilbake.<\/p><p><\/p><h2>Innhenting av personopplysninger<\/h2><p>Vi lagrer de personopplysningene du har avgitt til våre ansatte og\/eller på våre nettsider i forbindelse med din bruk av tjenestene.<\/p><p> Vi bruker informasjonskapsler\/cookies på våre nettsider for å gi besøkende best mulig brukeropplevelse og service. Lov om elektronisk kommunikasjon krever at vi informerer våre besøkende om bruk av informasjonskapsler. Les mer om bruk av informasjonskapsler her.<\/p><p><\/p><h2>Utlevering av opplysninger til tredjeparter<\/h2><p>For å kunne oppfylle våre forpliktelser etter avtalen, utleveres nødvendige opplysninger til våre samarbeidspartnere, eksempelvis: begravelsesbyrå, blomsterleverandør, mottaker av minnegaver, pårørende etc.<\/p><p>I tillegg til dette vil det ved behov tilgjengeliggjøres data til våre utviklere og supportmedarbeidere i land utenfor EU\/EØS. Vi har inngått avtale med underleverandører utenfor EU med standardvilkår som er utarbeidet av EU-kommisjonen for på best mulig måte å ivareta dine personvernrettigheter slik at personopplysningene behandles i tråd med EUs regler.<\/p><p>Utover dette vil vi ikke dele, selge, overføre eller på annen måte utlevere personopplysninger til andre, med mindre vi er rettslig forpliktet til det.<\/p><p><\/p><h2>Rettigheter for den registrerte<\/h2><p>Det gjøres oppmerksom på at du kan kreve innsyn i og utlevering, retting og sletting av dine personopplysninger.<\/p><p>Det kan klages til Datatilsynet på behandling i strid med dine rettigheter.<\/p><p><\/p><h2>Informasjonssikkerhet<\/h2><p>Vi sikrer dine personopplysninger ved både fysisk og virtuell adgangs- og tilgangskontroll.Passord og viktige data krypteres, adgang til dataene begrenses gjennom passordbeskyttede brukerrettigheter. Fysiske serverrom er avlåst. Adstate har utarbeidet en egen policy for informasjonssikkerhet.<\/p><p><\/p><h2>Endringer<\/h2><p>Denne personvernerklæringen kan endres så lenge dette er nødvendig for å rette opp feil og etterleve juridiske krav.<\/p><p><\/p><h2>Kontaktinformasjon<\/h2><p>Henvendelser om vår behandling av personopplysninger kan sendes skriftlig til følgende adresser:<\/p><p>personvern@adstate.com<\/p><p><\/p><p>Adstate AS<\/p><p>Storgata 2<\/p><p>3210 Sandefjord<\/p>",
+        "meta": {
+            "title": "Privacy Policy | Minnesider",
+            "description": "Read the privacy policy"
+        }
+    },
+    "cookiePopUp": {
+        "title": "Cookies",
+        "description": {
+            "before": "We use cookies. Read more in our ",
+            "after": ".",
+            "link": "privacy policy",
+            "necessary": {
+                "title": "Necessary",
+                "description": "These cookies are necessary for the website to function and cannot be switched off in our systems.",
+                "cookies": {
+                    "popUp": {
+                        "title": "Cookie settings - pop-up",
+                        "description": "Saves whether or not user has selected their cookie settings. Used to determine whether or not to show the pop-up.",
+                        "expiry": "never\/when policy changes",
+                        "type": "local storage"
+                    },
+                    "save": {
+                        "title": "Cookie settings - save",
+                        "description": "Saves which cookies have been checked\/unchecked for the pop-up.",
+                        "expiry": "never\/when policy changes",
+                        "type": "local storage"
+                    }
+                }
+            },
+            "performance": {
+                "title": "Performance",
+                "description": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site.",
+                "cookies": {
+                    "analytics": {
+                        "title": "Adstate Analytics",
+                        "description": "Loads a script used for analysing which pages are getting traffic. The data are not sent to any third-parties.",
+                        "expiry": "never\/when policy changes",
+                        "type": "local storage"
+                    }
+                }
+            }
+        }
+    },
+    "termsAndConditionsPage": {
+        "content": "<h2>Terms of services<\/h2><h3>A) Terms for ordering and delivering of flowers<\/h3><h4>1 The service and the parties<\/h4><p>This is a common flower ordering service for all funeral homes in The Netherlands. Each funeral home chooses which florist they will use to create and deliver the products and they can choose whether your order and payment goes directly to the chosen florist or through the funeral home. The e-flower shop solution and associated billing process is operated by Adstate in cooperation with XXX. Each funeral home fills the store with their items and prices in cooperation with their chosen florist. The order confirmation states who will receive the order and deliver the goods.<\/p><p>All people over 18 years of age are allowed to use the service<\/p><h4>2 Product description<\/h4><p>All products are handcrafts made by local florists. The pictures showing the product in the online store match as much as possible the product being delivered. Due to varying availability of some types of flowers, it could be that some flowers are replaced with similar flowers of equivalent value. There will always be sought that the delivered product matches the product image and hence the ordered product.<\/p><p>Many of the products can have up to 3 sizes. The photo shows the product in medium size, unless stated otherwise. Small and large differ in size from medium but a large bouquet can also include additional components, such as greenery.<\/p><h4>3 Prices<\/h4><p>Prices shown in the shop include VAT. For those products that are available in several sizes the price is stated per size in the ordering stage, where the size is selected. There is a delivery charge of the product, but this may vary depending on the type of delivery place, ceremony place or private address.<\/p><p>Otherwise delivery price stated in the product description, it will always appear in the summary of the order, before the booking is made. Here, the total price including all fees and charges arise.<\/p><h4>4 Delivery times and deadlines<\/h4><p>Delivery of flowers to ceremonies are done ahead of the ceremony, in consultation with the funeral home. To be sure that the goods are delivered on time the booking have to be made at the latest 12:00 am. on the last business day before the ceremony. If your order includes ribbons with printed text, the deadline for ordering is at 12.00 am. two business days before the ceremony. Orders made after the deadline will be delivered if possible. If it is not possible the order will be cancelled and the purchase price will be paid back.<\/p><p>Deliveries to private addresses are made continuously, and will take place within 1 to 3 business days after your order is received. If there are other factors like extreme weather, which makes it impossible to deliver within this time limit, they will be delivered as soon as possible. If the recipient is not at home and it is not checked for delivery to the door or to the neighbour, the florist takes the item back to the store. The florist will either leave a message for the recipient to contact the florist to arrange pickup or delivery of the item, or attempt delivery again at a later date. Delivery takes place by courier, bus or ferry.<\/p><h4>5 Ordering and order confirmation<\/h4><p>The booking is made when payment is completed. An order confirmation will be sent by email to your orders, which summarizes the entire order. Should there be something about the order that makes florist unable to deliver the ordered product or to the stated price, address or time duties florist immediately contact the buyer to advise on this. Buyer is then free to cancel the order to obtain a refund.<\/p><p>For those products that are available in several sizes, is the price stated per size in the ordering stage where the size selected. There is a delivery charge of the product, but this may vary depending on the type of delivery place, ceremony place or private address.<\/p><h4>6 Payment<\/h4><p>The payment is done with credit \/ debit card as part of the order. This requires a valid card authorized by the bank for online payments. The payment solution is hosted by XXX and card redemption is undertaken by XXXX. These are professionals who set payment security as a top priority. The money is deducted directly by order and not upon delivery of the goods.<\/p><h4>7 Complaints<\/h4><p>If there is something about the quality of the product or delivery that is not satisfactory, then the buyer must contact the florist who delivered the product. Contact data for this can be found on order receipt. Contact information to undertakers are always on the website linked to where the order was placed. A complaint must be made as soon as possible after delivery and contain a minimum order number, description of the defect and contact data of the person who is having the complaint.<\/p><h4>8 Right of withdrawal<\/h4><p>Cancellation rights apply to services not performed and must therefore be notified before florist has started work. For products to ceremony location corresponds to the deadline for the order. For large orders of over £ 100, the same deadline as the pressure on the strip at. 12.00 two working days before delivery.<\/p><h4>9 Personal information<\/h4><p>All customer information is treated confidentially. We rely on correct information about the buyer in case we need to get in touch with the person. These details will not be passed on to 3rd party without the client's consent.<\/p><h4>10 Ownership<\/h4><p>All materials and information, including pictures, in the online store are protected by copyright law and may not be freely copied or used by others.<\/p><h3>B) TERMS OF THE MEMORIAL PAGE<\/h3><h4>1 Submissions to the guestbook<\/h4><p>This is a memorial for family and friends who know the grief and loss by a loved one who has passed away. Having therefore respect for the family and the deceased's nearest.<\/p><p>You are personally responsible for the content of posts you publish.<\/p><p>Your greeting is immediately available to others as soon as you publish it unless the family has chosen to approve posts before they are published.<\/p><p>The greeting needs to be signed with your name.<\/p><p>We do not allow:<\/p><p>Greetings \/ posts that seem libellous or offensive, contain advertising, is in breach of copyright or otherwise violate Norwegian law. This will be removed without notice.<\/p><p>Personal attacks, threats, defamatory postings or that it \"brought to the table\" gossip and details that may violate persons concerned.<\/p><p>Profanity, or other offensive speech.<\/p><p>Publication of copyrighted material without agreement.<\/p><p>Posts that contain advertising or other attempts to sell products or services.<\/p><p>That it is posted (published) same greeting several times (spamming), or that it repeats a line many times (flooding).<\/p><p>Linking to pages with content that may lead to prosecution, defamatory, racist, threatening, obscene, pornographic or otherwise violate Norwegian law or custom.<\/p><p>Entries under \"Latest greeting\" approved usually not in advance, but will be as best controlled way. We, the administrator of the page and our partner Adstate AS reserves the right at any time to edit or delete inappropriate postings. For repeated violation of the rules has our partner Adstate also entitled to block the sender needs.<\/p><h4>2 Establishment of memory page:<\/h4><p>§1 We relate to Norwegian law and do not accept content that may lead to prosecution, defamatory, racist, threatening, obscene or otherwise violate applicable laws and regulations.<\/p><p>§2 A responsible person for the personal memory pages has to be appointed by the immediate family and is personally responsible for the content posted under the deceased's personal memory pages. Ensure that there is a representative and respectful picture drawn by the deceased on the personal memory page you create. It is also free to accept \/ remove posts under \"Last Regards\", where anyone who visits it can enter words to memory.<\/p><p>§3 Authorization is required to post someone else's intellectual property. Examples of intellectual property are images, texts, movies and music. Anyone who publishes something on the page is solely responsible for the content is not contrary to the law on intellectual property and copyrights.<\/p><p>§4 Abuse of our memory page with commercial endeavours, such as stealth advertising, will cause disconnection.<\/p><p>§5 We reserve the right to remove content that is contrary to the rules without notice.<\/p><p>§6 Our memory page cannot be used for private communications, messages or other messages to closed groups or other users of the site.<\/p>\n",
+        "meta": {
+            "title": "Terms and Conditions | Minnesider",
+            "description": "Read about our terms and conditions"
+        }
+    },
+    "aboutPage": {
+        "content": "<h2>Information about the service<\/h2><h3>About the portal<\/h3><p>Here is an overview of all deaths that our funeral home are handling, once the death has been published by the family. Linked to each death is the opportunity to see the obituary and order flowers for the ceremony or condolence flowers delivered to private address. For those families who have accepted memorial page and donations, there are also a link to this.<\/p><p>Whether the link to the flower order, memorial page and donation service are activated will depend on what services the funeral home is offering.<\/p><h3>About the flower shop<\/h3><p>In the flower shop, you can order flowers for all our funerals. Since the flower solution is integrated in the memorial page and the portal, much of the necessary information for ordering and delivery is already in place. It makes it easy to buy flowers for the ceremony or condolence flowers delivered to private address.<\/p><p>The flowers + card \/ ribbons are paid by credit card when booking. The order is sent directly to the funeral home or his chosen florist. As a customer, you will receive your receipt and order confirmation by e-mail once you have completed the payment. The payment is managed by Swedbank Pay, with the greatest possible security.<\/p><h3>About the memorial pages<\/h3><p>In our memorial pages, you can share memories, photos and music with family, friends and others who visit memorial page. Many people choose to write a little story (obituary) that can be found there for present and future generations. It is appreciated by the family if you to take part in activities, such as writing a condolence or light a candle.<\/p><p>If you want to create a memorial page, please contact the funeral home who arranged the funeral.<\/p><p>The memorial page is a meeting place where dignity, ethics and to show care is important. We reserve the right to delete content that could be offensive.<\/p><h3>About the donation<\/h3><p>When someone passes away, it is becoming more common that the family wants a donation to be given in connection with the death. The family can easily set up the donation digital on the memorial page for the deceased. The selected recipient of the donation could be a local organization \/ department or one of the major national associations. When someone gives donation, a gift certificate will be created, and it is sent to the giver and to the family administrator of memory page. The family gets a list of all who have given gifts, and the total amount received. The individual donations are not visible to the family.<\/p><p>The gift paid by credit card and payment goes via Swedbank Pay to the selected object. The service is available 24\/7 and ensures a highly secure and automated handling of memory gifts.<\/p>",
+        "meta": {
+            "title": "About | Minnesider",
+            "description": "Read about Minnesider"
+        }
+    },
+    "aws-test-key": "dont translate me im just a test"
+}

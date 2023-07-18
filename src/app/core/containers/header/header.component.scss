@@ -1,0 +1,59 @@
+// @import 'styles/global';
+@import '../../../../styles/global.scss';
+
+.nav-bar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: #fff;
+
+  @include typography;
+}
+
+.nav-bar-inner {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100em;
+}
+
+.nav-bar-links-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.display-logo-desktop {
+  display: block;
+}
+
+.display-logo-mobile {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .download-actions {
+    display: none;
+  }
+
+  .display-logo-desktop {
+    display: none;
+  }
+
+  .display-logo-mobile {
+    display: block;
+  }
+}

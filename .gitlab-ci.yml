@@ -1,0 +1,25 @@
+variables:
+  DEPLOY_NAMESPACE: adstate
+  DEPLOY_NAME: national-portal-fe
+  SKIP_TESTS: "false"
+  SECURITY_SCAN: "false"
+
+stages:
+  - build
+  - test
+  - release
+  - deploy
+  - stop
+
+.deploy:
+  tags:
+    - ads1
+
+.stop:
+  tags:
+    - ads1
+
+include:
+  - project: adstate_as/devops/gitlab-ci-templates
+    ref: v5.0.0
+    file: NpmDeploy.gitlab-ci.yml

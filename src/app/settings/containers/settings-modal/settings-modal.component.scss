@@ -1,0 +1,78 @@
+@import '~@angular/material/theming';
+$config: mat-typography-config();
+
+.settings-modal.settings-modal-wrapper {
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.settings-modal.settings-modal-padded-content {
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+}
+
+.settings-modal.settings-modal-content-row {
+  display: flex;
+  padding: 1em;
+  gap: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.settings-modal.settings-modal-content-row .settings-modal.settings-modal-content-column {
+  flex-grow: 1;
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.settings-modal.settings-cookies .cookie-category.wrapper {
+  border-bottom: 1px solid var(--color-mat-divider);
+}
+
+.settings-modal.settings-cookies .cookie-category.header {
+  padding: 2em;
+}
+
+.settings-modal.settings-cookies .cookie-category.wrapper:last-child .cookie-category.header {
+  border-bottom: none;
+}
+
+.settings-modal.settings-cookies .cookie-category.title {
+  padding-top: 0.2em;
+  display: flex;
+  align-items: center;
+  font-weight: mat-font-weight($config, title);
+}
+
+.settings-modal.settings-cookies .cookie-category.description {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+
+.settings-modal.settings-cookies .cookie-category.cookies-list {
+  list-style: none;
+  padding: 0 1.6em 0 2em;
+
+  .cookies-list-item {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border-top: 1px solid var(--color-mat-divider);
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  .cookies-list-item-details {
+    padding-top: 0.5em;
+    display: block;
+  }
+}

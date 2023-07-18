@@ -1,0 +1,221 @@
+<app-header *ngIf="!applicationIsEmbedded"></app-header>
+<adstate-settings-component *ngIf="!applicationIsEmbedded"></adstate-settings-component>
+
+<main>
+  <ng-container *ngIf="(translations$ | async)?.loading; else showContent">
+    <header>
+      <h1>Loading</h1>
+    </header>
+  </ng-container>
+
+  <ng-template #showContent>
+    <ng-container *ngIf="(translations$ | async)?.error === false; else showError">
+      <header>
+        <div class="background">
+          <img
+            src="https://img.adstate.com/r5M3tH14Hcsl8oL3A7d3dawe1M7e8Kl_w0iX1BK2VBs/rs:fill:0:0:1/czM6Ly9qYXZhLWh1dC1pbWdwcm94eS9zbS11cGxvYWRzLzA3LzVlZTBiNzVmZGE0YzM3ODcwMjI1MmM3YmU0MDRkYy9oZWFkZXItYmcuanBn.jpg"
+            alt=""
+            class="bg-image"
+          />
+          <img src="/images/waves.png" alt="" class="waves" />
+
+          <div class="overlay"></div>
+        </div>
+        <div class="inner">
+          <div>
+            <h1 class="title">
+              <span>Dødsannonser</span>
+              <span>&amp;</span>
+              <span>Minnesider</span>
+            </h1>
+
+            <p class="intro-text">
+              Med Minnesider appen kan du skrive en hilsen og dele hyggelige minner, bestille blomster til begravelsen, se livestream og
+              mer.
+            </p>
+
+            <div class="actions">
+              <a [href]="iOSAppStoreLink" target="_blank" rel="noopener">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="48" width="48">
+                    <defs>
+                      <linearGradient id="gradient">
+                        <stop offset="0%" stop-color="currentColor" stop-opacity="1" />
+                        <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <g class="layer-1">
+                      <path
+                        fill="url(#gradient)"
+                        stroke="transparent"
+                        stroke-linejoin="round"
+                        d="M8.5 7C10.1 7 11.0375 8 12 8C12.9625 8 14.4 7 16 7C17.1351 7 18.5923 7.64424 19.6404 8.93272C19.0595 9.31451 17.8976 10.4575 17.8976 13C17.8976 14.9704 19.5551 16.5225 20.3838 16.8228C19.4826 19.8091 17.724 22.5 16 22.5C14.5 22.5 13.5 21.5 12 21.5C10.5 21.5 10 22.5 8.5 22.5C6.03522 22.5 3.5 17 3.5 13C3.5 9 6.5 7 8.5 7Z"
+                      ></path>
+                      <path
+                        fill="url(#gradient)"
+                        stroke="transparent"
+                        stroke-linejoin="round"
+                        d="M12 6C12 3 13.5 1.5 16.5 1.5C16.5 4.5 15 6 12 6Z"
+                      ></path>
+                    </g>
+                    <g class="layer-2">
+                      <path
+                        stroke="currentColor"
+                        stroke-linejoin="round"
+                        d="M8.5 7C10.1 7 11.0375 8 12 8C12.9625 8 14.4 7 16 7C17.1351 7 18.5923 7.64424 19.6404 8.93272C19.0595 9.31451 17.8976 10.4575 17.8976 13C17.8976 14.9704 19.5551 16.5225 20.3838 16.8228C19.4826 19.8091 17.724 22.5 16 22.5C14.5 22.5 13.5 21.5 12 21.5C10.5 21.5 10 22.5 8.5 22.5C6.03522 22.5 3.5 17 3.5 13C3.5 9 6.5 7 8.5 7Z"
+                      ></path>
+                      <path stroke="currentColor" stroke-linejoin="round" d="M12 6C12 3 13.5 1.5 16.5 1.5C16.5 4.5 15 6 12 6Z"></path>
+                    </g>
+                  </svg>
+                </span>
+                <span>Download on the App Store</span>
+              </a>
+              <a [href]="AndroidGooglePlayStoreLink" target="_blank" rel="noopener">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="48" width="48">
+                    <defs>
+                      <linearGradient id="gradient">
+                        <stop offset="0%" stop-color="currentColor" stop-opacity="1" />
+                        <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <g class="layer-1">
+                      <path
+                        fill="url(#gradient)"
+                        stroke="transparent"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.50031 20.5479L16.7304 7.74463"
+                      ></path>
+                      <path
+                        fill="url(#gradient)"
+                        stroke="transparent"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21.0514 10.2742L6.51036 1.76234C5.17706 0.981878 3.5 1.94344 3.5 3.48837V20.512C3.5 22.0569 5.17706 23.0185 6.51036 22.238L21.0514 13.7262C22.3709 12.9538 22.3709 11.0466 21.0514 10.2742Z"
+                      ></path>
+                      <path stroke="transparent" stroke-linecap="round" stroke-linejoin="round" d="M16.7306 16.2557L3.50031 3.45215"></path>
+                    </g>
+                    <g class="layer-2">
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.50031 20.5479L16.7304 7.74463"
+                      ></path>
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21.0514 10.2742L6.51036 1.76234C5.17706 0.981878 3.5 1.94344 3.5 3.48837V20.512C3.5 22.0569 5.17706 23.0185 6.51036 22.238L21.0514 13.7262C22.3709 12.9538 22.3709 11.0466 21.0514 10.2742Z"
+                      ></path>
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.7306 16.2557L3.50031 3.45215"
+                      ></path>
+                    </g>
+                  </svg>
+                </span>
+                <span>Get it on Google Play</span>
+              </a>
+            </div>
+          </div>
+          <div>
+            <img src="/assets/images/app-multi.png" alt="" />
+          </div>
+        </div>
+      </header>
+      <section class="app-info">
+        <ul class="app-info-list">
+          <li class="app-info-list-item">
+            <div class="app-info-list-item-phone">
+              <img src="/images/two-iphones-leaning.png" alt="" />
+            </div>
+            <div class="app-info-list-item-content">
+              <h3 class="app-info-list-item-title">
+                <mat-icon class="icon">search</mat-icon>
+                <span class="text">Søk etter dødsfall</span>
+              </h3>
+              <p>
+                I appen kan du søke etter nesten alle dødsfallene i Norge. Våre samarbeidsartenere er begravelsesbyråene som håndterer
+                begravelser.
+              </p>
+              <div class="polaroid">
+                <img src="/images/person-01.jpg" alt="" />
+              </div>
+            </div>
+          </li>
+          <li class="app-info-list-item">
+            <div class="app-info-list-item-content">
+              <h3 class="app-info-list-item-title">
+                <mat-icon class="icon">notifications</mat-icon>
+                <span class="text">Bli varslet</span>
+              </h3>
+              <p>
+                Du kan lagre søk i appen som gjør at vi sender deg et varsel når et dødsfall blir publisert som matcher ditt søk. Du kan
+                lagre ulike søk basert på:
+              </p>
+              <ul>
+                <li>– Navn</li>
+                <li>– Bosted</li>
+                <li>– Fødselsår</li>
+              </ul>
+            </div>
+            <div class="app-info-list-item-phone">
+              <img src="/images/floating-phones.png" alt="" />
+            </div>
+          </li>
+          <li class="app-info-list-item">
+            <div class="app-info-list-item-phone">
+              <img src="/images/iphone-single-purple.png" alt="" />
+            </div>
+            <div class="app-info-list-item-content">
+              <h3 class="app-info-list-item-title">
+                <mat-icon class="icon">favorite</mat-icon>
+                <span class="text">Del gode minner</span>
+              </h3>
+              <p>Gjennom denne appen kan du også besøke en minneside. En minneside er en digital tjeneste hvor du blant annet kan:</p>
+              <ul>
+                <li>Finne informasjon om begravelsen</li>
+                <li>Tenne et lys</li>
+                <li>Skrive en hilsen eller dele et minne</li>
+                <li>Bestille blomster til begravelsen</li>
+                <li>Gi en minnegave</li>
+              </ul>
+              <div class="polaroid">
+                <img src="/images/person-02.jpg" alt="" />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="download-footer">
+        <div class="buttons">
+          <a [href]="iOSAppStoreLink" target="_blank" rel="noopener">
+            <img src="/images/en-apple-app-store-download-badge-2.svg" alt="" />
+          </a>
+          <a [href]="AndroidGooglePlayStoreLink" target="_blank" rel="noopener">
+            <img src="/images/en-google-play-store-download-badge-2.svg" alt="" />
+          </a>
+        </div>
+        <div class="qr">
+          <img src="/images/qr.png" alt="" />
+        </div>
+      </section>
+      <!-- <div *ngIf="(translations$ | async).content && (translations$ | async).content.length">
+        <p *ngFor="let content of (translations$ | async).content" [innerHTML]="content.item.text"></p>
+      </div> -->
+    </ng-container>
+  </ng-template>
+
+  <ng-template #showError>
+    <header>
+      <h1>Error</h1>
+      <p>Something went wrong, we couldn't get the content.</p>
+    </header>
+  </ng-template>
+</main>
+
+<app-footer *ngIf="!applicationIsEmbedded"></app-footer>

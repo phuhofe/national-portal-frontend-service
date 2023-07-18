@@ -1,0 +1,11 @@
+export const DEFAULT_SEARCH_AREA = 'national';
+export const SEARCH_URL = 'search';
+export const DEFAULT_PAGE_SIZE = '50';
+export const REGIONS_URL = 'regions';
+export const DOMAIN = 'domain';
+export const PAGE = 'page';
+export const DEFAULT_PAGE = '0';
+export const SIZE = 'size';
+export const AREA = 'area';
+export const ORDER_BY = 'orderBy';
+export const SEARCH_TERMS = 'searchTerms';

@@ -1,0 +1,8 @@
+// @import 'styles/global';
+@import '../../styles/global.scss';
+
+.wrapper {
+  box-sizing: border-box;
+
+  @include typography;
+}

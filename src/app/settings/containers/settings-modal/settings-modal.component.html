@@ -1,0 +1,111 @@
+<form class="settings-modal settings-modal-wrapper" action="/" method="post" (submit)="onSubmit($event, null)">
+  <flora-settings-modal
+    class="settings-modal settings-modal-wrapper"
+    [title]="title"
+    [pages]="pages"
+    [availableLanguages]="availableLanguages$ | async"
+    (pageChange)="onPageChange($event)"
+    (modalClose)="onModalClose()"
+    (languageSelected)="onLanguageSelected($event)"
+    [defaultLanguage]="(siteLanguageSettings$ | async)?.value"
+  >
+    <div header>
+      <h1 *ngIf="page">{{ page.title }}</h1>
+      <ng-template [ngIf]="page && page.slug === 'cookies'">
+        <div [innerHTML]="'portalPage.settings.cookie' | transloco"></div>
+
+        <p>
+          {{ 'portalPage.settings.forMoreInformation' | transloco }}
+          <a
+            [routerLink]="['/', companySlug$ | async, 'pages', 'privacy-policy']"
+            [skipLocationChange]="applicationIsEmbedded"
+            itemscope
+            itemtype="https://schema.org/SiteNavigationElement"
+            itemprop="url"
+            (click)="onModalClose()"
+          >
+            {{ 'portalPage.settings.privacyPolicy' | transloco }} </a
+          >.
+        </p>
+      </ng-template>
+    </div>
+    <div content>
+      <ng-template [ngIf]="page && page.slug === 'cookies'">
+        <mat-accordion class="settings-modal settings-cookies" displayMode="flat" togglePosition="before">
+          <mat-expansion-panel
+            *ngFor="let cookieCategory of page.settings.cookies"
+            class="cookie-category wrapper"
+            [expanded]="page.accordionStatuses[cookieCategory.slug]"
+            (opened)="page.accordionStatuses[cookieCategory.slug] = true"
+            (closed)="page.accordionStatuses[cookieCategory.slug] = false"
+          >
+            <mat-expansion-panel-header class="cookie-category header">
+              <mat-panel-title class="cookie-category title">{{ cookieCategory.title }}</mat-panel-title>
+              <mat-panel-description class="cookie-category description">
+                <flora-setting-toggle
+                  [checked]="cookieCategory.checked"
+                  [indeterminate]="cookieCategory.indeterminate"
+                  [disabled]="cookieCategory.disabled"
+                  (settingChange)="onCookieCategoryChange($event, cookieCategory)"
+                ></flora-setting-toggle>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+              <ul class="cookie-category cookies-list">
+                <li class="cookie-category cookies-list-item" *ngFor="let cookie of cookieCategory.cookies">
+                  <flora-setting-toggle
+                    [title]="cookie.title"
+                    [description]="cookie.description"
+                    [checked]="cookie.checked"
+                    [disabled]="cookie.disabled"
+                    (settingChange)="onCookieChange($event, cookie, cookieCategory)"
+                  ></flora-setting-toggle>
+                  <mat-chip-list class="cookie-category cookies-list-item-details" aria-label="Cookie technical data">
+                    <mat-chip> {{ 'portalPage.settings.cookieName' | transloco }}: {{ cookie.slug }}</mat-chip>
+                    <mat-chip> {{ 'portalPage.settings.expiry' | transloco }}: {{ cookie.expiry }}</mat-chip>
+                    <mat-chip> {{ 'portalPage.settings.type' | transloco }}: {{ cookie.type }}</mat-chip>
+                  </mat-chip-list>
+                </li>
+                <li *ngIf="!cookieCategory.cookies || cookieCategory.cookies.length === 0">
+                  <p>{{ 'portalPage. settings.noCookieForCategory' | transloco }}</p>
+                </li>
+              </ul>
+            </ng-template>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ng-template>
+      <ng-template [ngIf]="page && page.slug === 'matomo'">
+        <div class="settings-modal settings-modal-padded-content">
+          <div class="settings-modal settings-modal-content-row">
+            <div class="settings-modal settings-modal-content-column">
+              <iframe style="border: 0; height: 300px; width: 350px" [src]="matomoOptOutUrl"></iframe>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <button
+      *ngIf="page && page.slug === 'cookies'"
+      footer
+      mat-stroked-button
+      color="basic"
+      type="submit"
+      (click)="onSubmit($event, 'accept_selected'); onAcceptSelected()"
+    >
+      {{ 'portalPage.settings.acceptSelected' | transloco }}
+    </button>
+    <button
+      *ngIf="page && page.slug === 'cookies'"
+      footer
+      mat-flat-button
+      color="primary"
+      type="submit"
+      (click)="onSubmit($event, 'accept_all'); onAcceptAll()"
+    >
+      {{ 'portalPage.settings.acceptAll' | transloco }}
+    </button>
+    <button *ngIf="page && page.slug === 'matomo'" footer mat-flat-button color="primary" type="submit" (click)="onSubmit($event, 'save')">
+      {{ 'portalPage.settings.save' | transloco }}
+    </button>
+  </flora-settings-modal>
+</form>

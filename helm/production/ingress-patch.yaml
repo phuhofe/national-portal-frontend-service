@@ -1,0 +1,74 @@
+- op: add
+  path: /spec/rules/-
+  value:
+    host: minnesider.no
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: production-national-portal-fe
+            port:
+              number: 80
+      - path: /api/web/portal
+        pathType: Prefix
+        backend:
+          service: 
+            name:  production-portal-service
+            port:
+              number: 80
+      - path: /api/web/customer-site
+        pathType: Prefix
+        backend:
+          service:  
+            name: production-customer-site-service
+            port:
+              number: 80
+      - path: /api/mobile/search
+        pathType: Prefix
+        backend:
+          service:  
+            name: production-mobile-search-service
+            port:
+              number: 80
+- op: add
+  path: /spec/tls/0/hosts/-
+  value: minnesider.no
+- op: add
+  path: /spec/rules/-
+  value:
+    host: www.minnesider.no
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: production-national-portal-fe
+            port:
+              number: 80
+      - path: /api/web/portal
+        pathType: Prefix
+        backend:
+          service: 
+            name:  production-portal-service
+            port:
+              number: 80
+      - path: /api/web/customer-site
+        pathType: Prefix
+        backend:
+          service:  
+            name: production-customer-site-service
+            port:
+              number: 80
+      - path: /api/mobile/search
+        pathType: Prefix
+        backend:
+          service:  
+            name: production-mobile-search-service
+            port:
+              number: 80
+- op: add
+  path: /spec/tls/0/hosts/-
+  value: www.minnesider.no
